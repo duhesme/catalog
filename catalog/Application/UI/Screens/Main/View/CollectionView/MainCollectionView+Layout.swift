@@ -9,26 +9,49 @@ import UIKit
 
 extension MainCollectionView {
     
-    typealias MainDataSource = UICollectionViewDiffableDataSource<Section, MainModel>
-    typealias MainSnapshot = NSDiffableDataSourceSnapshot<Section, MainModel>
+    typealias MainDataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
+    typealias MainSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     
     enum Section: Int, Hashable, CaseIterable {
-        case category
+        case categoryHeader,
+             category,
+             search,
+             hotSalesHeader,
+             banner
     }
     
     func createCompositionalLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             
             guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
-            
-            if sectionKind == .category {
+            if sectionKind == .categoryHeader {
+                return self.createSectionHeaderSectionLayout()
+            } else if sectionKind == .category {
                 return self.createCategorySectionLayout()
+            } else if sectionKind == .search {
+                return self.createSearchSectionLayout()
+            } else if sectionKind == .hotSalesHeader {
+                return self.createSectionHeaderSectionLayout()
+            } else if sectionKind == .banner {
+                return self.createBannerSectionLayout()
             }
             
             return nil
         }
         
         return layout
+    }
+    
+    func createSectionHeaderSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 17, bottom: 10, trailing: 35)
+        
+        return section
     }
     
     func createCategorySectionLayout() -> NSCollectionLayoutSection {
@@ -47,12 +70,48 @@ extension MainCollectionView {
         return section
     }
     
+    func createSearchSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(40)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 10)
+        return section
+    }
+    
+    func createBannerSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(102))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 17, bottom: 0, trailing: 17)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+        
+        return section
+    }
+    
     func createCollectionView() -> UICollectionView {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCompositionalLayout())
         collectionView.showsVerticalScrollIndicator = false
         collectionView.isScrollEnabled = true
         collectionView.alwaysBounceVertical = true
         collectionView.register(CategoryMainCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMainCollectionViewCell.identifier)
+        collectionView.register(SearchMainCollectionView.self, forCellWithReuseIdentifier: SearchMainCollectionView.identifier)
+        collectionView.register(SectionHeaderMainCollectionViewCell.self, forCellWithReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier)
+        collectionView.register(BannerMainCollectionViewCell.self, forCellWithReuseIdentifier: BannerMainCollectionViewCell.identifier)
         
         return collectionView
     }

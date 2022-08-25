@@ -1,5 +1,5 @@
 //
-//  CategoryMainCollectionViewCell.swift
+//  HeaderCategoryMainCollectionViewCell.swift
 //  catalog
 //
 //  Created by Никита Владимирович on 25.08.2022.
@@ -7,37 +7,43 @@
 
 import UIKit
 
-final class CategoryMainCollectionViewCell: UICollectionViewCell {
+final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
     
     class var identifier: String {
-        return "categoryMainCollectionViewCell"
+        return "sectionHeaderMainCollectionViewCell"
     }
     
-    private let iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = .purple
-        
-        return imageView
-    }()
+    private let containerView = UIView()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textAlignment = .center
-        label.font = .systemFont(ofSize: 12)
-        label.text = "Phone"
-        label.backgroundColor = .green
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
+        label.text = "Title"
+        label.font = .systemFont(ofSize: 25)
         
         return label
     }()
+    
+    private let viewAllButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("view all", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 15)
+        
+        return button
+    }()
+    
+    var title: String? {
+        set {
+            titleLabel.text = newValue
+        }
+        get {
+            return titleLabel.text
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
     }
-    
-    private let containerView = UIView()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -57,10 +63,10 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     private func makeConstraints() {
         let stackView: UIStackView = {
             let stackView = UIStackView(arrangedSubviews: [
-                iconImageView,
-                titleLabel
+                titleLabel,
+                viewAllButton
             ])
-            stackView.axis = .vertical
+            stackView.axis = .horizontal
             stackView.spacing = 0
             stackView.alignment = .fill
             
@@ -77,9 +83,11 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
-        iconImageView.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalTo(containerView.snp.width)
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview()
+        }
+        viewAllButton.snp.makeConstraints { make in
+            make.right.equalToSuperview()
         }
     }
     
