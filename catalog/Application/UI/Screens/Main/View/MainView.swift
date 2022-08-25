@@ -9,6 +9,8 @@ import UIKit
 
 final class MainView: UIView {
     
+    private let collectionView = MainCollectionView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -19,7 +21,15 @@ final class MainView: UIView {
     }
     
     private func setUpView() {
-        backgroundColor = .red
+        makeConstraints()
+    }
+    
+    private func makeConstraints() {
+        addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
 }
