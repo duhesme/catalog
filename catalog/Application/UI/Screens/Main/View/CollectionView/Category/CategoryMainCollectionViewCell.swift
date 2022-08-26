@@ -13,12 +13,18 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         return "categoryMainCollectionViewCell"
     }
     
-    private let iconContainer = UIView()
+    private let iconContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = Asset.Colors.baseOrange.color
+        view.layer.cornerRadius = CGFloat(71) / CGFloat(2)
+        
+        return view
+    }()
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .purple
-        imageView.layer.cornerRadius = CGFloat(71) / CGFloat(2)
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -78,7 +84,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     private func makeConstraints() {
         let stackView: UIStackView = {
             let stackView = UIStackView(arrangedSubviews: [
-                iconImageView,
+                iconContainer,
                 titleLabel
             ])
             stackView.axis = .vertical
@@ -90,6 +96,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         
         contentView.addSubview(containerView)
         containerView.addSubview(stackView)
+        iconContainer.addSubview(iconImageView)
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -98,9 +105,12 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
             make.edges.equalToSuperview()
         }
         
-        iconImageView.snp.makeConstraints { make in
+        iconContainer.snp.makeConstraints { make in
             make.width.equalToSuperview()
             make.height.equalTo(containerView.snp.width)
+        }
+        iconImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(16)
         }
     }
     
