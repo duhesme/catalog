@@ -15,10 +15,10 @@ final class MainCollectionView: UIView {
     lazy private var mainDataSource = makeMainDataSource()
 
     private let categories: [Category] = [
-        Category(image: Asset.Assets.Main.Catalog.phone.image, title: "Phone", isSelected: true),
-        Category(image: Asset.Assets.Main.Catalog.computer.image, title: "Computer", isSelected: false),
-        Category(image: Asset.Assets.Main.Catalog.health.image, title: "Health", isSelected: false),
-        Category(image: Asset.Assets.Main.Catalog.books.image, title: "Books", isSelected: false),
+        Category(image: Asset.Assets.Main.Category.phone.image, title: "Phone", isSelected: true),
+        Category(image: Asset.Assets.Main.Category.computer.image, title: "Computer", isSelected: false),
+        Category(image: Asset.Assets.Main.Category.health.image, title: "Health", isSelected: false),
+        Category(image: Asset.Assets.Main.Category.books.image, title: "Books", isSelected: false),
         Category(image: nil, title: "Travel", isSelected: false),
         Category(image: nil, title: "Home", isSelected: false),
         Category(image: nil, title: "Pet", isSelected: false),

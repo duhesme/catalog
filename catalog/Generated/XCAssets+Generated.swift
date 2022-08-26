@@ -27,11 +27,15 @@ internal enum Asset {
   internal enum Assets {
     internal static let accentColor = ColorAsset(name: "AccentColor")
     internal enum Main {
-      internal enum Catalog {
+      internal enum Category {
         internal static let books = ImageAsset(name: "Books")
         internal static let computer = ImageAsset(name: "Computer")
         internal static let health = ImageAsset(name: "Health")
         internal static let phone = ImageAsset(name: "Phone")
+      }
+      internal enum Product {
+        internal static let heart = ImageAsset(name: "Heart")
+        internal static let selectedHeart = ImageAsset(name: "SelectedHeart")
       }
     }
   }
