@@ -24,6 +24,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.image = Asset.Assets.Main.Category.question.image
         
         return imageView
     }()

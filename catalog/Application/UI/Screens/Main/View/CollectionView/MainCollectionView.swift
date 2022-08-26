@@ -56,7 +56,12 @@ final class MainCollectionView: UIView {
     private func setUpView() {
         collectionView = createCollectionView()
         makeConstraints()
+        configureAppereance()
         applySnapshot(animatingDifferencies: false)
+    }
+    
+    private func configureAppereance() {
+        collectionView.backgroundColor = Asset.Colors.background.color
     }
     
     private func makeConstraints() {
@@ -130,7 +135,9 @@ extension MainCollectionView {
         let index = indexPath.row
         print("Category: \(index)")
         cell?.title = categories[index].title
-        cell?.icon = categories[index].image
+        if let image = categories[index].image {
+            cell?.icon = image
+        }
         cell?.isSelected = categories[index].isSelected
         
         return cell

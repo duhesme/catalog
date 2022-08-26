@@ -22,6 +22,7 @@ final class MainView: UIView {
     
     private func setUpView() {
         makeConstraints()
+        backgroundColor = .gray
     }
     
     private func makeConstraints() {

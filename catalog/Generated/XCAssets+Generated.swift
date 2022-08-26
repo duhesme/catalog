@@ -32,6 +32,7 @@ internal enum Asset {
         internal static let computer = ImageAsset(name: "Computer")
         internal static let health = ImageAsset(name: "Health")
         internal static let phone = ImageAsset(name: "Phone")
+        internal static let question = ImageAsset(name: "Question")
       }
       internal enum Product {
         internal static let heart = ImageAsset(name: "Heart")
@@ -40,6 +41,7 @@ internal enum Asset {
     }
   }
   internal enum Colors {
+    internal static let background = ColorAsset(name: "background")
     internal static let baseOrange = ColorAsset(name: "baseOrange")
   }
 }

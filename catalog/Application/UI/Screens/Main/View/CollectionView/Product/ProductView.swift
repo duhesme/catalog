@@ -91,6 +91,9 @@ final class ProductView: UIView {
     
     private func configureAppereance() {
         backgroundColor = .brown
+        
+        layer.cornerRadius = 12
+        clipsToBounds = true
     }
     
     private func makeConstraints() {
@@ -145,7 +148,8 @@ final class ProductView: UIView {
             make.height.equalTo(50)
         }
         priceLabel.snp.makeConstraints { make in
-            make.left.centerY.equalToSuperview()
+            make.left.equalToSuperview().inset(8)
+            make.centerY.equalToSuperview()
         }
         discountPriceLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
