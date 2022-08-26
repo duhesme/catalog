@@ -62,6 +62,11 @@ final class ProductMainCollectionViewCell: UICollectionViewCell {
     
     private func setUpView() {
         makeConstraints()
+        configureAppearance()
+    }
+    
+    private func configureAppearance() {
+        dropShadow(color: Asset.Colors.Main.Product.shadow.color, opacity: 1, offSet: CGSize(width: 1, height: 1), radius: 3, scale: true)
     }
     
     private func makeConstraints() {

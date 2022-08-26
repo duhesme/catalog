@@ -44,6 +44,7 @@ internal enum Asset {
     internal enum Main {
       internal enum Product {
         internal static let likeButtonShadow = ColorAsset(name: "likeButtonShadow")
+        internal static let shadow = ColorAsset(name: "shadow")
       }
     }
     internal static let background = ColorAsset(name: "background")
