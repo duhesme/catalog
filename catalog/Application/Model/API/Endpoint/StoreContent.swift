@@ -25,7 +25,7 @@ struct StoreContent: Decodable {
     let best_seller: [BestSellerItem]
 }
 
-struct HomeStoreItem: Decodable {
+struct HomeStoreItem: Decodable, Hashable {
     let id: Int
     let is_new: Bool?
     let title: String
@@ -34,7 +34,7 @@ struct HomeStoreItem: Decodable {
     let is_buy: Bool
 }
 
-struct BestSellerItem: Decodable {
+struct BestSellerItem: Decodable, Hashable {
     let id: Int
     let is_favorites: Bool
     let title: String

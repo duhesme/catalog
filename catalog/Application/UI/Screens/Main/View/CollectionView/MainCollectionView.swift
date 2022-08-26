@@ -87,7 +87,7 @@ final class MainCollectionView: UIView {
 extension MainCollectionView {
     
     func makeMainDataSource() -> MainDataSource {
-        let dataSource = MainDataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, item) -> UICollectionViewCell? in
+        let dataSource = MainDataSource(collectionView: collectionView, cellProvider: { [unowned self] (collectionView, indexPath, item) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("Unknown section") }
             print(indexPath)
             switch section {
@@ -96,7 +96,7 @@ extension MainCollectionView {
                 cell?.title = Strings.Main.Section.Category.title
                 return cell
             case .category:
-                let cell = self.configureCategoryCell(forIndexPath: indexPath)
+                let cell = configureCategoryCell(forIndexPath: indexPath)
                 return cell
             case .search:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: SearchMainCollectionView.identifier, for: indexPath) as? SearchMainCollectionView
@@ -105,7 +105,7 @@ extension MainCollectionView {
                 cell?.title = Strings.Main.Section.HotSales.title
                 return cell
             case .banner:
-                return collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
+                return configureBannerCell(forIndexPath: indexPath)
             case .bestSellerHeader:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier, for: indexPath) as? SectionHeaderMainCollectionViewCell
                 cell?.title = Strings.Main.Section.BestSeller.title
@@ -126,7 +126,7 @@ extension MainCollectionView {
         snapshot.appendItems(categories, toSection: .category)
         snapshot.appendItems([SearchQuery(query: "")], toSection: .search)
         snapshot.appendItems([MainCollectionItem(id: "hotSalesHeader")], toSection: .hotSalesHeader)
-        snapshot.appendItems(banners, toSection: .banner)
+        snapshot.appendItems(hotSales, toSection: .banner)
         snapshot.appendItems([MainCollectionItem(id: "bestSellerHeader")], toSection: .bestSellerHeader)
         snapshot.appendItems(products, toSection: .bestSeller)
         
@@ -148,6 +148,13 @@ extension MainCollectionView {
             cell?.icon = image
         }
         cell?.isSelected = categories[index].isSelected
+        
+        return cell
+    }
+    
+    func configureBannerCell(forIndexPath indexPath: IndexPath) -> BannerMainCollectionViewCell? {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
+        cell?.setImage(fromStringURL: hotSales[indexPath.row].picture)
         
         return cell
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class BannerMainCollectionViewCell: UICollectionViewCell {
     
@@ -14,6 +15,13 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     }
     
     private let containerView = UIView()
+    
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,10 +45,20 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     
     private func makeConstraints() {
         contentView.addSubview(containerView)
+        containerView.addSubview(imageView)
 
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    func setImage(fromStringURL url: String) {
+        guard let imageUrl = URL(string: url) else { return }
+        imageView.kf.setImage(with: .network(imageUrl))
     }
     
 }
