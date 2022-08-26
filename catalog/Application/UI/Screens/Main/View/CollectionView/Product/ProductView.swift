@@ -38,9 +38,13 @@ final class ProductView: UIView {
     
     private let likeButton: BounceButton = {
         let button = BounceButton()
+        
         button.backgroundColor = .white
         button.setImage(Asset.Assets.Main.Product.heart.image, for: .normal)
         button.layer.cornerRadius = CGFloat(25) / CGFloat(2)
+        
+        button.dropShadow(color: Asset.Colors.Main.Product.likeButtonShadow.color, opacity: 1, offSet: CGSize(width: 1, height: 1), radius: 3, scale: true)
+        
         return button
     }()
     
