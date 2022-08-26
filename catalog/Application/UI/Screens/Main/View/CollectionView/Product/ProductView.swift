@@ -36,9 +36,11 @@ final class ProductView: UIView {
         return label
     }()
     
-    private let likeButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .red
+    private let likeButton: BounceButton = {
+        let button = BounceButton()
+        button.backgroundColor = .white
+        button.setImage(Asset.Assets.Main.Product.heart.image, for: .normal)
+        button.layer.cornerRadius = CGFloat(25) / CGFloat(2)
         return button
     }()
     
