@@ -23,7 +23,6 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .purple
         imageView.contentMode = .scaleAspectFit
         
         return imageView
@@ -34,12 +33,28 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 12)
         label.text = "Phone"
-        label.backgroundColor = .green
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         
         return label
     }()
+    
+    override var isSelected: Bool {
+        set {
+            if newValue {
+                iconContainer.backgroundColor = Asset.Colors.baseOrange.color
+            } else {
+                iconContainer.backgroundColor = .white
+            }
+        }
+        get {
+            if iconContainer.backgroundColor == Asset.Colors.baseOrange.color {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
     
     var icon: UIImage? {
         set {
@@ -76,7 +91,6 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpAppearance() {
-        containerView.backgroundColor = .red
         containerView.layer.cornerRadius = 12
         containerView.clipsToBounds = true
     }

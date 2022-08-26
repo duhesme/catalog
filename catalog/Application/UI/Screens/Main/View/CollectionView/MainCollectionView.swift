@@ -15,15 +15,15 @@ final class MainCollectionView: UIView {
     lazy private var mainDataSource = makeMainDataSource()
 
     private let categories: [Category] = [
-        Category(image: Asset.Assets.Main.Catalog.phone.image, title: "Phone"),
-        Category(image: Asset.Assets.Main.Catalog.computer.image, title: "Computer"),
-        Category(image: Asset.Assets.Main.Catalog.health.image, title: "Health"),
-        Category(image: Asset.Assets.Main.Catalog.books.image, title: "Books"),
-        Category(image: nil, title: "Travel"),
-        Category(image: nil, title: "Home"),
-        Category(image: nil, title: "Pet"),
-        Category(image: nil, title: "Gym"),
-        Category(image: nil, title: "Laptop")
+        Category(image: Asset.Assets.Main.Catalog.phone.image, title: "Phone", isSelected: true),
+        Category(image: Asset.Assets.Main.Catalog.computer.image, title: "Computer", isSelected: false),
+        Category(image: Asset.Assets.Main.Catalog.health.image, title: "Health", isSelected: false),
+        Category(image: Asset.Assets.Main.Catalog.books.image, title: "Books", isSelected: false),
+        Category(image: nil, title: "Travel", isSelected: false),
+        Category(image: nil, title: "Home", isSelected: false),
+        Category(image: nil, title: "Pet", isSelected: false),
+        Category(image: nil, title: "Gym", isSelected: false),
+        Category(image: nil, title: "Laptop", isSelected: false)
     ]
     
     private let banners: [Banner] = [
@@ -127,10 +127,11 @@ extension MainCollectionView {
     
     func configureCategoryCell(forIndexPath indexPath: IndexPath) -> CategoryMainCollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell
-        
         let index = indexPath.row
+        print("Category: \(index)")
         cell?.title = categories[index].title
         cell?.icon = categories[index].image
+        cell?.isSelected = categories[index].isSelected
         
         return cell
     }

@@ -15,6 +15,7 @@ struct MainCollectionItem: Hashable {
 struct Category: Hashable {
     let image: UIImage?
     let title: String
+    var isSelected: Bool
 }
 
 struct SearchQuery: Hashable {
