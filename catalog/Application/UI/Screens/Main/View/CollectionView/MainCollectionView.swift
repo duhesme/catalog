@@ -84,7 +84,7 @@ extension MainCollectionView {
             switch section {
             case .categoryHeader:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier, for: indexPath) as? SectionHeaderMainCollectionViewCell
-                cell?.title = "Select category"
+                cell?.title = Strings.Main.Section.Category.title
                 return cell
             case .category:
                 let cell = self.configureCategoryCell(forIndexPath: indexPath)
@@ -93,13 +93,13 @@ extension MainCollectionView {
                 return collectionView.dequeueReusableCell(withReuseIdentifier: SearchMainCollectionView.identifier, for: indexPath) as? SearchMainCollectionView
             case .hotSalesHeader:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier, for: indexPath) as? SectionHeaderMainCollectionViewCell
-                cell?.title = "Hot sales"
+                cell?.title = Strings.Main.Section.HotSales.title
                 return cell
             case .banner:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
             case .bestSellerHeader:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier, for: indexPath) as? SectionHeaderMainCollectionViewCell
-                cell?.title = "Best seller"
+                cell?.title = Strings.Main.Section.BestSeller.title
                 return cell
             case .bestSeller:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell

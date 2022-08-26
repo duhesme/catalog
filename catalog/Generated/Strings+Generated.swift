@@ -12,9 +12,17 @@ import Foundation
 public enum Strings {
   public enum Main {
     public enum Section {
+      public enum BestSeller {
+        /// Best Seller
+        public static let title = Strings.tr("Localizable", "Main.Section.BestSeller.Title", fallback: "Best Seller")
+      }
       public enum Category {
         /// Select category
         public static let title = Strings.tr("Localizable", "Main.Section.Category.Title", fallback: "Select category")
+      }
+      public enum HotSales {
+        /// Hot Sales
+        public static let title = Strings.tr("Localizable", "Main.Section.HotSales.Title", fallback: "Hot Sales")
       }
     }
   }
