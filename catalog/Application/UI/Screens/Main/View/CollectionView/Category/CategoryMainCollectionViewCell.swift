@@ -16,6 +16,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .purple
+        imageView.layer.cornerRadius = CGFloat(71) / CGFloat(2)
         
         return imageView
     }()
@@ -31,6 +32,24 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         
         return label
     }()
+    
+    var icon: UIImage? {
+        set {
+            iconImageView.image = newValue
+        }
+        get {
+            return iconImageView.image
+        }
+    }
+    
+    var title: String? {
+        set {
+            titleLabel.text = newValue
+        }
+        get {
+            return titleLabel.text
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -15,10 +15,10 @@ final class MainCollectionView: UIView {
     lazy private var mainDataSource = makeMainDataSource()
 
     private let categories: [Category] = [
-        Category(image: nil, title: "Phone"),
-        Category(image: nil, title: "Computer"),
-        Category(image: nil, title: "Health"),
-        Category(image: nil, title: "Books"),
+        Category(image: Asset.Assets.Main.Catalog.phone.image, title: "Phone"),
+        Category(image: Asset.Assets.Main.Catalog.computer.image, title: "Computer"),
+        Category(image: Asset.Assets.Main.Catalog.health.image, title: "Health"),
+        Category(image: Asset.Assets.Main.Catalog.books.image, title: "Books"),
         Category(image: nil, title: "Travel"),
         Category(image: nil, title: "Home"),
         Category(image: nil, title: "Pet"),
@@ -116,6 +116,22 @@ extension MainCollectionView {
         snapshot.appendItems(products, toSection: .bestSeller)
         
         mainDataSource.apply(snapshot, animatingDifferences: animatingDifferencies)
+    }
+    
+}
+
+//MARK: - Cell Configuration
+
+extension MainCollectionView {
+    
+    func configureCategoryCell(forIndexPath indexPath: IndexPath) -> UICollectionViewCell? {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell
+        
+        let index = indexPath.row
+        cell?.title = categories[index].title
+        cell?.icon = categories[index].image
+        
+        return cell
     }
     
 }
