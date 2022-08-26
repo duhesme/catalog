@@ -59,7 +59,11 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     
     var icon: UIImage? {
         set {
-            iconImageView.image = newValue
+            if newValue == nil {
+                iconImageView.image = Asset.Assets.Main.Category.question.image
+            } else {
+                iconImageView.image = newValue
+            }
         }
         get {
             return iconImageView.image

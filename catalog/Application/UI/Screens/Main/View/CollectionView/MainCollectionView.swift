@@ -144,9 +144,7 @@ extension MainCollectionView {
         let index = indexPath.row
         print("Category: \(index)")
         cell?.title = categories[index].title
-        if let image = categories[index].image {
-            cell?.icon = image
-        }
+        cell?.icon = categories[index].image
         cell?.isSelected = categories[index].isSelected
         
         return cell
