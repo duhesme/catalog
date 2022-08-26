@@ -82,7 +82,8 @@ extension MainCollectionView {
                 cell?.title = "Select category"
                 return cell
             case .category:
-                return collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell
+                let cell = self.configureCategoryCell(forIndexPath: indexPath)
+                return cell
             case .search:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: SearchMainCollectionView.identifier, for: indexPath) as? SearchMainCollectionView
             case .hotSalesHeader:
@@ -124,7 +125,7 @@ extension MainCollectionView {
 
 extension MainCollectionView {
     
-    func configureCategoryCell(forIndexPath indexPath: IndexPath) -> UICollectionViewCell? {
+    func configureCategoryCell(forIndexPath indexPath: IndexPath) -> CategoryMainCollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell
         
         let index = indexPath.row

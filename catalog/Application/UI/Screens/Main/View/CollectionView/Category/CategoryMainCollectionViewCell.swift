@@ -13,6 +13,8 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         return "categoryMainCollectionViewCell"
     }
     
+    private let iconContainer = UIView()
+    
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .purple
