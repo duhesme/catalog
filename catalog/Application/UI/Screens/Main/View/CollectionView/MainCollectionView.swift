@@ -35,6 +35,15 @@ final class MainCollectionView: UIView {
         Banner(id: 5, imageURL: nil)
     ]
     
+    private let products: [Product] = [
+        Product(id: 0, title: "iPhone", picture: nil),
+        Product(id: 1, title: "iPhone", picture: nil),
+        Product(id: 2, title: "iPhone", picture: nil),
+        Product(id: 3, title: "iPhone", picture: nil),
+        Product(id: 4, title: "iPhone", picture: nil),
+        Product(id: 5, title: "iPhone", picture: nil)
+    ]
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -82,6 +91,12 @@ extension MainCollectionView {
                 return cell
             case .banner:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
+            case .bestSellerHeader:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier, for: indexPath) as? SectionHeaderMainCollectionViewCell
+                cell?.title = "Best seller"
+                return cell
+            case .bestSeller:
+                return collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell
             }
         })
         
@@ -90,18 +105,15 @@ extension MainCollectionView {
     
     func applySnapshot(animatingDifferencies: Bool = true) {
         var snapshot = MainSnapshot()
-        snapshot.appendSections([
-            Section.categoryHeader,
-            Section.category,
-            Section.search,
-            Section.hotSalesHeader,
-            Section.banner
-        ])
+        snapshot.appendSections(Section.allCases)
+        
         snapshot.appendItems([MainCollectionItem(id: "catalogHeader")], toSection: .categoryHeader)
         snapshot.appendItems(categories, toSection: .category)
         snapshot.appendItems([SearchQuery(query: "")], toSection: .search)
         snapshot.appendItems([MainCollectionItem(id: "hotSalesHeader")], toSection: .hotSalesHeader)
         snapshot.appendItems(banners, toSection: .banner)
+        snapshot.appendItems([MainCollectionItem(id: "bestSellerHeader")], toSection: .bestSellerHeader)
+        snapshot.appendItems(products, toSection: .bestSeller)
         
         mainDataSource.apply(snapshot, animatingDifferences: animatingDifferencies)
     }

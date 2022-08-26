@@ -25,3 +25,9 @@ struct Banner: Hashable {
     let id: Int
     let imageURL: URL?
 }
+
+struct Product: Hashable {
+    let id: Int
+    let title: String
+    let picture: URL?
+}

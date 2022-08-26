@@ -17,7 +17,9 @@ extension MainCollectionView {
              category,
              search,
              hotSalesHeader,
-             banner
+             banner,
+             bestSellerHeader,
+             bestSeller
     }
     
     func createCompositionalLayout() -> UICollectionViewLayout {
@@ -34,6 +36,10 @@ extension MainCollectionView {
                 return self.createSectionHeaderSectionLayout()
             } else if sectionKind == .banner {
                 return self.createBannerSectionLayout()
+            } else if sectionKind == .bestSellerHeader {
+                return self.createSectionHeaderSectionLayout()
+            } else if sectionKind == .bestSeller {
+                return self.createBestSellerGridSectionLayout()
             }
             
             return nil
@@ -84,7 +90,7 @@ extension MainCollectionView {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 10)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 32, bottom: 10, trailing: 37)
         return section
     }
     
@@ -93,13 +99,27 @@ extension MainCollectionView {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(102))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 17, bottom: 0, trailing: 17)
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         
+        return section
+    }
+    
+    func createBestSellerGridSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 11)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(227))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 2)
+//        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 11)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 12
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 18, bottom: 10, trailing: 7)
         return section
     }
     
@@ -112,6 +132,7 @@ extension MainCollectionView {
         collectionView.register(SearchMainCollectionView.self, forCellWithReuseIdentifier: SearchMainCollectionView.identifier)
         collectionView.register(SectionHeaderMainCollectionViewCell.self, forCellWithReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier)
         collectionView.register(BannerMainCollectionViewCell.self, forCellWithReuseIdentifier: BannerMainCollectionViewCell.identifier)
+        collectionView.register(ProductMainCollectionViewCell.self, forCellWithReuseIdentifier: ProductMainCollectionViewCell.identifier)
         
         return collectionView
     }
