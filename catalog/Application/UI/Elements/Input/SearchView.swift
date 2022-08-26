@@ -24,7 +24,7 @@ final class SearchView: UIView {
     }
     
     private func setUpAppearance() {
-        backgroundColor = .green
+        
     }
     
     private func makeConstraints() {

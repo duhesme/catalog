@@ -31,7 +31,9 @@ final class SearchMainCollectionView: UICollectionViewCell {
     }
     
     private func setUpAppearance() {
-        backgroundColor = .green
+        backgroundColor = .white
+        layer.cornerRadius = 12
+        clipsToBounds = true
     }
     
     private func makeConstraints() {

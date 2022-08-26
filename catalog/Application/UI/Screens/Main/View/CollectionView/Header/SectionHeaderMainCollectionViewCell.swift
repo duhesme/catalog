@@ -27,6 +27,7 @@ final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.setTitle("view all", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.setTitleColor(Asset.Colors.baseOrange.color, for: .normal)
         
         return button
     }()
@@ -55,7 +56,6 @@ final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpAppearance() {
-        containerView.backgroundColor = .red
         containerView.layer.cornerRadius = 12
         containerView.clipsToBounds = true
     }
