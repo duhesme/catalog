@@ -101,6 +101,7 @@ final class ProductView: UIView {
         
         let imageContainer = UIView()
         let priceContainer = UIView()
+        let titleContainer = UIView()
         
         imageContainer.backgroundColor = .gray
         priceContainer.backgroundColor = .blue
@@ -109,7 +110,7 @@ final class ProductView: UIView {
             let stackView = UIStackView(arrangedSubviews: [
                 imageContainer,
                 priceContainer,
-                titleLabel
+                titleContainer
             ])
             stackView.axis = .vertical
             stackView.distribution = .fill
@@ -123,6 +124,7 @@ final class ProductView: UIView {
         imageContainer.addSubview(likeButton)
         priceContainer.addSubview(priceLabel)
         priceContainer.addSubview(discountPriceLabel)
+        titleContainer.addSubview(titleLabel)
         
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -154,6 +156,14 @@ final class ProductView: UIView {
         discountPriceLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
             make.left.equalTo(priceLabel.snp.right)
+        }
+        
+        titleContainer.snp.makeConstraints { make in
+            make.height.equalTo(20)
+        }
+        titleLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(8)
+            make.centerY.equalToSuperview()
         }
     }
     
