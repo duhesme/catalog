@@ -33,4 +33,8 @@ final class MainView: UIView {
         }
     }
     
+    func updateStoreContent(content: StoreContent) {
+        collectionView.updateStoreContent(content: content)
+    }
+    
 }

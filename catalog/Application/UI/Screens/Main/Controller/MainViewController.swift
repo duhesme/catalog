@@ -15,6 +15,7 @@ final class MainViewController<View: MainView>: BaseViewController<View> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        storeContent?.cancel()
         storeContent = API.storeContent()
             .print()
             .sink(receiveCompletion: { (completion) in
@@ -23,9 +24,13 @@ final class MainViewController<View: MainView>: BaseViewController<View> {
                         print("Couldn't get store content: \(error)")
                     case .finished: break
                     }
-                }) { storeContent in
-                    print(storeContent)
+                }) { [unowned self] storeContent in
+                    onAPIUpdate(storeContent: storeContent)
                 }
+    }
+    
+    private func onAPIUpdate(storeContent: StoreContent) {
+        rootView.updateStoreContent(content: storeContent)
     }
     
 }

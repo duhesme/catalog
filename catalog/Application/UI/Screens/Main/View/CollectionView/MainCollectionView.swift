@@ -44,6 +44,9 @@ final class MainCollectionView: UIView {
         Product(id: 5, title: "iPhone", picture: nil)
     ]
     
+    private var hotSales: [HomeStoreItem] = []
+    private var bestSellers: [BestSellerItem] = []
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -70,6 +73,12 @@ final class MainCollectionView: UIView {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    func updateStoreContent(content: StoreContent) {
+        hotSales = content.home_store
+        bestSellers = content.best_seller
+        applySnapshot()
     }
     
 }
