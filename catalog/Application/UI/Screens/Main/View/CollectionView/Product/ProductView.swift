@@ -58,7 +58,10 @@ final class ProductView: UIView {
             priceLabel.text
         }
         set {
-            priceLabel.text = newValue
+            let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: newValue!)
+                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+            
+            priceLabel.attributedText = attributeString
         }
     }
     
@@ -122,8 +125,8 @@ final class ProductView: UIView {
         contentView.addSubview(stackView)
         imageContainer.addSubview(imageView)
         imageContainer.addSubview(likeButton)
-        priceContainer.addSubview(priceLabel)
         priceContainer.addSubview(discountPriceLabel)
+        priceContainer.addSubview(priceLabel)
         titleContainer.addSubview(titleLabel)
         
         contentView.snp.makeConstraints { make in
@@ -149,13 +152,13 @@ final class ProductView: UIView {
         priceContainer.snp.makeConstraints { make in
             make.height.equalTo(50)
         }
-        priceLabel.snp.makeConstraints { make in
+        discountPriceLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(8)
             make.centerY.equalToSuperview()
         }
-        discountPriceLabel.snp.makeConstraints { make in
+        priceLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.left.equalTo(priceLabel.snp.right)
+            make.left.equalTo(discountPriceLabel.snp.right)
         }
         
         titleContainer.snp.makeConstraints { make in
