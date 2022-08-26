@@ -50,8 +50,10 @@ final class ProductMainCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setImage(fromURL url: URL) {
-        productView.setImage(fromURL: url)
+    func setImage(fromStringURL url: String) {
+        if let url = URL(string: url) {
+            productView.setImage(fromURL: url)
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -11,7 +11,7 @@ final class ProductView: UIView {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -72,7 +72,7 @@ final class ProductView: UIView {
     }
     
     func setImage(fromURL url: URL) {
-        
+        imageView.kf.setImage(with: .network(url))
     }
     
     override init(frame: CGRect) {

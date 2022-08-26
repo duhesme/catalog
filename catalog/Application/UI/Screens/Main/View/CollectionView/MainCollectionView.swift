@@ -111,7 +111,7 @@ extension MainCollectionView {
                 cell?.title = Strings.Main.Section.BestSeller.title
                 return cell
             case .bestSeller:
-                return collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell
+                return configureBestSellerCell(forIndexPath: indexPath)
             }
         })
         
@@ -128,7 +128,7 @@ extension MainCollectionView {
         snapshot.appendItems([MainCollectionItem(id: "hotSalesHeader")], toSection: .hotSalesHeader)
         snapshot.appendItems(hotSales, toSection: .banner)
         snapshot.appendItems([MainCollectionItem(id: "bestSellerHeader")], toSection: .bestSellerHeader)
-        snapshot.appendItems(products, toSection: .bestSeller)
+        snapshot.appendItems(bestSellers, toSection: .bestSeller)
         
         mainDataSource.apply(snapshot, animatingDifferences: animatingDifferencies)
     }
@@ -155,6 +155,13 @@ extension MainCollectionView {
     func configureBannerCell(forIndexPath indexPath: IndexPath) -> BannerMainCollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
         cell?.setImage(fromStringURL: hotSales[indexPath.row].picture)
+        
+        return cell
+    }
+    
+    func configureBestSellerCell(forIndexPath indexPath: IndexPath) -> ProductMainCollectionViewCell? {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell
+        cell?.setImage(fromStringURL: bestSellers[indexPath.row].picture)
         
         return cell
     }
