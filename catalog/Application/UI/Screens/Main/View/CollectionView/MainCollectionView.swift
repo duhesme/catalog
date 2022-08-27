@@ -164,6 +164,7 @@ extension MainCollectionView {
         cell?.setImage(fromStringURL: product.picture)
         cell?.discountPrice = "$\(product.discount_price)"
         cell?.price = "$\(product.price_without_discount)"
+        cell?.title = product.title
         
         return cell
     }
