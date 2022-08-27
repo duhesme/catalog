@@ -19,7 +19,6 @@ final class ProductView: UIView {
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.text = "199"
-        label.backgroundColor = .red
         label.font = FontFamily.MarkPro.regular.font(size: 10)
         label.textColor = Asset.Colors.Main.Product.priceFont.color
         return label
@@ -102,7 +101,7 @@ final class ProductView: UIView {
     }
     
     private func configureAppereance() {
-        backgroundColor = .brown
+        backgroundColor = .white
         
         layer.cornerRadius = 12
         clipsToBounds = true
@@ -114,9 +113,6 @@ final class ProductView: UIView {
         let imageContainer = UIView()
         let priceContainer = UIView()
         let titleContainer = UIView()
-        
-        imageContainer.backgroundColor = .gray
-        priceContainer.backgroundColor = .blue
         
         let stackView: UIStackView = {
             let stackView = UIStackView(arrangedSubviews: [
