@@ -87,3 +87,11 @@ strings:
         publicAccess: true
         enumName: Strings
       output: Strings+Generated.swift
+
+## Fonts
+fonts:
+  inputs:
+    - Resources/Fonts
+  outputs:
+    - templateName: swift5
+      output: Fonts+Generated.swift
