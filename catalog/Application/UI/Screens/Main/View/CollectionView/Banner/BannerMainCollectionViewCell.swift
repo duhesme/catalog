@@ -15,6 +15,7 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     }
     
     private let containerView = UIView()
+    private var newView = UIView()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -61,6 +62,46 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    var isNew: Bool? {
+        get {
+            return !newView.isHidden
+        }
+        set {
+            if newValue == nil && newValue == false {
+                newView.isHidden = false
+            } else {
+                newView.isHidden = true
+            }
+        }
+    }
+    
+    var isBuy: Bool {
+        get {
+            !buyNowButton.isHidden
+        }
+        set {
+            buyNowButton.isHidden = !newValue
+        }
+    }
+    
+    var title: String? {
+        get {
+            return titleLabel.text
+        }
+        set {
+            titleLabel.text = newValue
+        }
+    }
+    
+    var subtitle: String? {
+        get {
+            return subtitleLabel.text
+        }
+        set {
+            subtitleLabel.text = newValue
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
@@ -83,7 +124,7 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     
     private func makeConstraints() {
         let newViewContainer = UIView()
-        let newView = UIView()
+        newView = UIView()
         newView.layer.cornerRadius = CGFloat(27) / CGFloat(2)
         newView.backgroundColor = Asset.Colors.Base.orange.color
         

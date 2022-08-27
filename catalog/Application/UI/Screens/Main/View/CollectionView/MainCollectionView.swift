@@ -134,7 +134,13 @@ extension MainCollectionView {
     
     func configureBannerCell(forIndexPath indexPath: IndexPath) -> BannerMainCollectionViewCell? {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
-        cell?.setImage(fromStringURL: hotSales[indexPath.row].picture)
+        
+        let banner = hotSales[indexPath.row]
+        cell?.title = banner.title
+        cell?.subtitle = banner.subtitle
+        cell?.setImage(fromStringURL: banner.picture)
+        cell?.isNew = banner.is_new
+        cell?.isBuy = banner.is_buy 
         
         return cell
     }
