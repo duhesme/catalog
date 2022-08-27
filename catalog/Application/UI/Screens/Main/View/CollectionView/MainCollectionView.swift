@@ -150,6 +150,11 @@ extension MainCollectionView {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell else { return nil }
         let product = bestSellers[indexPath.row]
         
+        cell.id = indexPath.row
+        cell.favoriteButtonPressed = { [unowned self] id in
+            print(id)
+            bestSellers[id].is_favorites = !bestSellers[id].is_favorites
+        }
         cell.setImage(fromStringURL: product.picture)
         cell.discountPrice = "$\(product.discount_price)"
         cell.price = "$\(product.price_without_discount)"
@@ -164,10 +169,7 @@ extension MainCollectionView {
 extension MainCollectionView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let sectionKind = Section(rawValue: indexPath.section) else { return }
         
-        bestSellers[indexPath.row].is_favorites = false
-        applySnapshot()
     }
     
 }

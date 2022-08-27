@@ -99,6 +99,8 @@ final class ProductView: UIView {
         }
     }
     
+    var favoriteButtonPressed: (() -> Void)?
+    
     func setImage(fromURL url: URL) {
         imageView.kf.setImage(with: .network(url))
     }
@@ -115,6 +117,8 @@ final class ProductView: UIView {
     private func setUpView() {
         configureAppereance()
         makeConstraints()
+        
+        likeButton.addTarget(self, action: #selector(favouriteButtonPressed), for: .touchUpInside)
     }
     
     private func configureAppereance() {
@@ -187,6 +191,11 @@ final class ProductView: UIView {
             make.top.equalToSuperview().inset(4)
             make.left.equalToSuperview().inset(21)
         }
+    }
+    
+    @objc private func favouriteButtonPressed() {
+        favoriteButtonPressed?()
+        isFavourite = !isFavourite
     }
     
 }

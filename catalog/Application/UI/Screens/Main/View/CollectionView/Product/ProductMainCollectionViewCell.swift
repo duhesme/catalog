@@ -21,6 +21,10 @@ final class ProductMainCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
+        productView.favoriteButtonPressed = { [weak self] in
+            guard let id = self?.id else { return }
+            self?.favoriteButtonPressed?(id)
+        }
     }
     
     var title: String? {
@@ -58,6 +62,10 @@ final class ProductMainCollectionViewCell: UICollectionViewCell {
             productView.isFavourite = newValue
         }
     }
+    
+    var id: Int?
+    
+    var favoriteButtonPressed: ((_ id: Int) -> Void)?
     
     func setImage(fromStringURL url: String) {
         if let url = URL(string: url) {
