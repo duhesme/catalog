@@ -158,13 +158,13 @@ extension MainCollectionView {
     }
     
     func configureBestSellerCell(forIndexPath indexPath: IndexPath) -> ProductMainCollectionViewCell? {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductMainCollectionViewCell.identifier, for: indexPath) as? ProductMainCollectionViewCell else { return nil }
         let product = bestSellers[indexPath.row]
         
-        cell?.setImage(fromStringURL: product.picture)
-        cell?.discountPrice = "$\(product.discount_price)"
-        cell?.price = "$\(product.price_without_discount)"
-        cell?.title = product.title
+        cell.setImage(fromStringURL: product.picture)
+        cell.discountPrice = "$\(product.discount_price)"
+        cell.price = "$\(product.price_without_discount)"
+        cell.title = product.title
         
         return cell
     }
