@@ -20,12 +20,14 @@ final class ProductView: UIView {
         let label = UILabel()
         label.text = "199"
         label.backgroundColor = .red
+        label.font = .systemFont(ofSize: 10)
         return label
     }()
     
     private let discountPriceLabel: UILabel = {
         let label = UILabel()
         label.text = "199"
+        label.font = .systemFont(ofSize: 16)
         return label
     }()
     
@@ -34,6 +36,7 @@ final class ProductView: UIView {
         label.text = "iPhone"
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.font = .systemFont(ofSize: 10)
         return label
     }()
     
@@ -142,9 +145,6 @@ final class ProductView: UIView {
             make.edges.equalToSuperview()
         }
         
-        imageContainer.snp.makeConstraints { make in
-            make.height.equalTo(imageContainer.snp.width).multipliedBy(0.9)
-        }
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -155,23 +155,23 @@ final class ProductView: UIView {
         }
         
         priceContainer.snp.makeConstraints { make in
-            make.height.equalTo(50)
+            make.height.equalTo(20)
         }
         discountPriceLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(8)
+            make.left.equalToSuperview().inset(21)
             make.centerY.equalToSuperview()
         }
         priceLabel.snp.makeConstraints { make in
             make.bottom.equalToSuperview()
-            make.left.equalTo(discountPriceLabel.snp.right)
+            make.left.equalTo(discountPriceLabel.snp.right).offset(7)
         }
         
         titleContainer.snp.makeConstraints { make in
-            make.height.equalTo(20)
+            make.height.equalTo(26)
         }
         titleLabel.snp.makeConstraints { make in
-            make.left.equalToSuperview().inset(8)
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().inset(4)
+            make.left.equalToSuperview().inset(21)
         }
     }
     
