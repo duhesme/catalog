@@ -36,7 +36,7 @@ struct HomeStoreItem: Decodable, Hashable {
 
 struct BestSellerItem: Decodable, Hashable {
     let id: Int
-    let is_favorites: Bool
+    var is_favorites: Bool
     let title: String
     let price_without_discount: Int
     let discount_price: Int

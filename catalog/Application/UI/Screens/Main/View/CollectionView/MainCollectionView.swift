@@ -40,6 +40,7 @@ final class MainCollectionView: UIView {
     
     private func setUpView() {
         collectionView = createCollectionView()
+        collectionView.delegate = self
         makeConstraints()
         configureAppereance()
         applySnapshot(animatingDifferencies: false)
@@ -156,6 +157,17 @@ extension MainCollectionView {
         cell.isFavourite = product.is_favorites
         
         return cell
+    }
+    
+}
+
+extension MainCollectionView: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let sectionKind = Section(rawValue: indexPath.section) else { return }
+        
+        bestSellers[indexPath.row].is_favorites = false
+        applySnapshot()
     }
     
 }
