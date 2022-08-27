@@ -46,7 +46,7 @@ final class MainCollectionView: UIView {
     }
     
     private func configureAppereance() {
-        collectionView.backgroundColor = Asset.Colors.background.color
+        collectionView.backgroundColor = Asset.Colors.Base.background.color
     }
     
     private func makeConstraints() {

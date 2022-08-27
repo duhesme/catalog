@@ -27,7 +27,7 @@ final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.setTitle("view all", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 15)
-        button.setTitleColor(Asset.Colors.baseOrange.color, for: .normal)
+        button.setTitleColor(Asset.Colors.Base.orange.color, for: .normal)
         
         return button
     }()

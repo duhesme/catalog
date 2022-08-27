@@ -15,7 +15,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     
     private let iconContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = Asset.Colors.baseOrange.color
+        view.backgroundColor = Asset.Colors.Base.orange.color
         view.layer.cornerRadius = CGFloat(71) / CGFloat(2)
         
         return view
@@ -43,13 +43,13 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     override var isSelected: Bool {
         set {
             if newValue {
-                iconContainer.backgroundColor = Asset.Colors.baseOrange.color
+                iconContainer.backgroundColor = Asset.Colors.Base.orange.color
             } else {
                 iconContainer.backgroundColor = .white
             }
         }
         get {
-            if iconContainer.backgroundColor == Asset.Colors.baseOrange.color {
+            if iconContainer.backgroundColor == Asset.Colors.Base.orange.color {
                 return true
             } else {
                 return false

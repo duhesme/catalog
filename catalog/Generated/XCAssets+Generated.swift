@@ -41,6 +41,10 @@ internal enum Asset {
     }
   }
   internal enum Colors {
+    internal enum Base {
+      internal static let background = ColorAsset(name: "background")
+      internal static let orange = ColorAsset(name: "orange")
+    }
     internal enum Main {
       internal enum Banner {
         internal static let buyNowFont = ColorAsset(name: "buyNowFont")
@@ -55,8 +59,6 @@ internal enum Asset {
         internal static let shadow = ColorAsset(name: "shadow")
       }
     }
-    internal static let background = ColorAsset(name: "background")
-    internal static let baseOrange = ColorAsset(name: "baseOrange")
   }
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
