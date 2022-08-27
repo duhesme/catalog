@@ -18,7 +18,7 @@ final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Title"
-        label.font = .systemFont(ofSize: 25)
+        label.font = FontFamily.MarkPro.medium.font(size: 25)
         
         return label
     }()
@@ -26,7 +26,7 @@ final class SectionHeaderMainCollectionViewCell: UICollectionViewCell {
     private let viewAllButton: UIButton = {
         let button = UIButton()
         button.setTitle("view all", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 15)
+        button.titleLabel?.font = FontFamily.MarkPro.regular.font(size: 15)
         button.setTitleColor(Asset.Colors.Base.orange.color, for: .normal)
         
         return button

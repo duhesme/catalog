@@ -157,11 +157,6 @@ final class SearchView: UIView {
             make.width.height.equalTo(14)
         }
 
-
-        searchBackView.snp.makeConstraints { (make) in
-//            make.height.equalTo(40)
-        }
-
         iconsStackView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-8)
