@@ -98,6 +98,8 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     private func setUpAppearance() {
         containerView.layer.cornerRadius = 12
         containerView.clipsToBounds = true
+        
+        iconContainer.dropShadow(color: Asset.Colors.Main.Category.shadow.color, opacity: 1, offSet: CGSize(width: 0, height: 0), radius: 3, scale: true)
     }
     
     private func makeConstraints() {
