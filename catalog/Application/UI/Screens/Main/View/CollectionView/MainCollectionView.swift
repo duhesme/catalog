@@ -10,6 +10,10 @@ import SnapKit
 
 final class MainCollectionView: UIView {
     
+    private let refreshControl = UIRefreshControl()
+    
+    var pullToRefresh: (() -> Void)?
+    
     private var collectionView: UICollectionView!
     
     lazy private var mainDataSource = makeMainDataSource()
@@ -41,6 +45,8 @@ final class MainCollectionView: UIView {
     private func setUpView() {
         collectionView = createCollectionView()
         collectionView.delegate = self
+        configureRefreshControl()
+        
         makeConstraints()
         configureAppereance()
         applySnapshot(animatingDifferencies: false)
@@ -58,10 +64,25 @@ final class MainCollectionView: UIView {
         }
     }
     
+    private func configureRefreshControl() {
+        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc private func handleRefreshControl() {
+        guard let pullToRefresh = pullToRefresh else {
+            refreshControl.endRefreshing()
+            return
+        }
+        
+        pullToRefresh()
+    }
+    
     func updateStoreContent(content: StoreContent) {
         hotSales = content.home_store
         bestSellers = content.best_seller
         applySnapshot()
+        refreshControl.endRefreshing()
     }
     
 }

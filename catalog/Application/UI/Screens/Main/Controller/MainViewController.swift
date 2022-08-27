@@ -9,13 +9,20 @@ import Combine
 
 final class MainViewController<View: MainView>: BaseViewController<View> {
     
-    private var storeContent: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        storeContent?.cancel()
-        storeContent = API.storeContent()
+        loadStoreContent()
+        
+        rootView.events.sink { [weak self] in
+            self?.onViewEvents($0)
+        }.store(in: &cancellables)
+    }
+    
+    private func loadStoreContent() {
+        API.storeContent()
             .print()
             .sink(receiveCompletion: { (completion) in
                     switch completion {
@@ -25,11 +32,18 @@ final class MainViewController<View: MainView>: BaseViewController<View> {
                     }
                 }) { [unowned self] storeContent in
                     onAPIUpdate(storeContent: storeContent)
-                }
+                }.store(in: &cancellables)
     }
     
     private func onAPIUpdate(storeContent: StoreContent) {
         rootView.updateStoreContent(content: storeContent)
+    }
+    
+    private func onViewEvents(_ event: MainViewEvent) {
+        switch event {
+        case .pullToRefresh:
+            loadStoreContent()
+        }
     }
     
 }

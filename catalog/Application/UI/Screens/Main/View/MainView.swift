@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 final class MainView: UIView {
+    
+    let events = PassthroughSubject<MainViewEvent, Never>()
     
     private let collectionView = MainCollectionView()
     
@@ -23,6 +26,10 @@ final class MainView: UIView {
     private func setUpView() {
         makeConstraints()
         backgroundColor = .gray
+        
+        collectionView.pullToRefresh = { [unowned self] in
+            events.send(.pullToRefresh)
+        }
     }
     
     private func makeConstraints() {
