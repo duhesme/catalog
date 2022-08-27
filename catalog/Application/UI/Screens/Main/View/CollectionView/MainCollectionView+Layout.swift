@@ -13,7 +13,8 @@ extension MainCollectionView {
     typealias MainSnapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     
     enum Section: Int, Hashable, CaseIterable {
-        case categoryHeader,
+        case location,
+             categoryHeader,
              category,
              search,
              hotSalesHeader,
@@ -26,7 +27,9 @@ extension MainCollectionView {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             
             guard let sectionKind = Section(rawValue: sectionIndex) else { return nil }
-            if sectionKind == .categoryHeader {
+            if sectionKind == .location {
+                return self.createLocationSectionLayout()
+            } else if sectionKind == .categoryHeader {
                 return self.createSectionHeaderSectionLayout()
             } else if sectionKind == .category {
                 return self.createCategorySectionLayout()
@@ -46,6 +49,24 @@ extension MainCollectionView {
         }
         
         return layout
+    }
+    
+    func createLocationSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(20)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+        return section
     }
     
     func createSectionHeaderSectionLayout() -> NSCollectionLayoutSection {
@@ -132,6 +153,7 @@ extension MainCollectionView {
         collectionView.register(SectionHeaderMainCollectionViewCell.self, forCellWithReuseIdentifier: SectionHeaderMainCollectionViewCell.identifier)
         collectionView.register(BannerMainCollectionViewCell.self, forCellWithReuseIdentifier: BannerMainCollectionViewCell.identifier)
         collectionView.register(ProductMainCollectionViewCell.self, forCellWithReuseIdentifier: ProductMainCollectionViewCell.identifier)
+        collectionView.register(LocationMainCollectionViewCell.self, forCellWithReuseIdentifier: LocationMainCollectionViewCell.identifier)
         
         return collectionView
     }

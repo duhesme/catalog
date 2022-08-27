@@ -34,6 +34,11 @@ internal enum Asset {
         internal static let phone = ImageAsset(name: "Phone")
         internal static let question = ImageAsset(name: "Question")
       }
+      internal enum Location {
+        internal static let downArrow = ImageAsset(name: "downArrow")
+        internal static let filter = ImageAsset(name: "filter")
+        internal static let location = ImageAsset(name: "location")
+      }
       internal enum Product {
         internal static let heart = ImageAsset(name: "Heart")
         internal static let selectedHeart = ImageAsset(name: "SelectedHeart")

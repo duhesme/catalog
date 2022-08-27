@@ -95,6 +95,8 @@ extension MainCollectionView {
                 return cell
             case .bestSeller:
                 return configureBestSellerCell(forIndexPath: indexPath)
+            case .location:
+                return configureLocationCategoryCell(forIndexPath: indexPath)
             }
         })
         
@@ -105,6 +107,7 @@ extension MainCollectionView {
         var snapshot = MainSnapshot()
         snapshot.appendSections(Section.allCases)
         
+        snapshot.appendItems([MainCollectionItem(id: "location")], toSection: .location)
         snapshot.appendItems([MainCollectionItem(id: "catalogHeader")], toSection: .categoryHeader)
         snapshot.appendItems(categories, toSection: .category)
         snapshot.appendItems([SearchQuery(query: "")], toSection: .search)
@@ -160,6 +163,12 @@ extension MainCollectionView {
         cell.price = "$\(product.price_without_discount)"
         cell.title = product.title
         cell.isFavourite = product.is_favorites
+        
+        return cell
+    }
+    
+    func configureLocationCategoryCell(forIndexPath indexPath: IndexPath) -> LocationMainCollectionViewCell? {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LocationMainCollectionViewCell.identifier, for: indexPath) as? LocationMainCollectionViewCell else { return nil }
         
         return cell
     }
