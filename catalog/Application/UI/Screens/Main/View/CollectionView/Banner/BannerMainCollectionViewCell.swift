@@ -21,7 +21,7 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
         label.font = FontFamily.SFProDisplay.medium.font(size: 25)
         label.textColor = .white
         label.text = "iPhone 12"
-        
+
         return label
     }()
     
@@ -47,6 +47,9 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         button.titleLabel?.font = FontFamily.SFProDisplay.medium.font(size: 11)
         button.setTitleColor(Asset.Colors.Main.Banner.buyNowFont.color, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 5
+        button.setTitle("Buy now", for: .normal)
         
         return button
     }()
@@ -79,8 +82,48 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     }
     
     private func makeConstraints() {
+        let newViewContainer = UIView()
+        let newView = UIView()
+        newView.layer.cornerRadius = CGFloat(27) / CGFloat(2)
+        newView.backgroundColor = Asset.Colors.Base.orange.color
+        
+        let buyNowContainer = UIView()
+        buyNowContainer.backgroundColor = .clear
+        
+        let titleStackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [
+                titleLabel,
+                subtitleLabel
+            ])
+            stackView.axis = .vertical
+            stackView.distribution = .fill
+            stackView.spacing = 5
+            stackView.backgroundColor = .clear
+            
+            return stackView
+        }()
+        
+        let stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [
+                newViewContainer,
+                titleStackView,
+                buyNowContainer
+            ])
+            stackView.axis = .vertical
+            stackView.distribution = .fill
+            stackView.backgroundColor = .clear
+            stackView.setCustomSpacing(18, after: newViewContainer)
+            stackView.setCustomSpacing(26, after: titleStackView)
+            
+            return stackView
+        }()
+        
         contentView.addSubview(containerView)
         containerView.addSubview(imageView)
+        containerView.addSubview(stackView)
+        newViewContainer.addSubview(newView)
+        newView.addSubview(newLabel)
+        buyNowContainer.addSubview(buyNowButton)
 
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -88,6 +131,32 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
         
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.left.equalToSuperview().inset(32)
+            make.top.equalToSuperview().inset(23)
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(18)
+        }
+        
+        newViewContainer.snp.makeConstraints { make in
+            make.height.equalTo(27)
+        }
+        newView.snp.makeConstraints { make in
+            make.width.height.equalTo(27)
+        }
+        newLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        
+        buyNowContainer.snp.makeConstraints { make in
+            make.height.equalTo(23)
+        }
+        
+        buyNowButton.snp.makeConstraints { make in
+            make.left.top.bottom.equalToSuperview()
+            make.width.equalTo(98)
         }
     }
     
