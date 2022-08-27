@@ -131,7 +131,7 @@ extension MainCollectionView {
         print("Category: \(index)")
         cell.title = categories[index].title
         cell.icon = categories[index].image
-        cell.isSelected = categories[index].isSelected
+        cell.isCategorySelected = categories[index].isSelected
         
         return cell
     }

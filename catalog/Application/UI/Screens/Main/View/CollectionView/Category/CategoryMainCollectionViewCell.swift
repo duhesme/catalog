@@ -41,7 +41,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    override var isSelected: Bool {
+    var isCategorySelected: Bool {
         set {
             if newValue {
                 iconContainer.backgroundColor = Asset.Colors.Base.orange.color
