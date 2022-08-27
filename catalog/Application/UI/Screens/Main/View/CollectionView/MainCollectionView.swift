@@ -26,24 +26,6 @@ final class MainCollectionView: UIView {
         Category(image: nil, title: "Laptop", isSelected: false)
     ]
     
-    private let banners: [Banner] = [
-        Banner(id: 0, imageURL: nil),
-        Banner(id: 1, imageURL: nil),
-        Banner(id: 2, imageURL: nil),
-        Banner(id: 3, imageURL: nil),
-        Banner(id: 4, imageURL: nil),
-        Banner(id: 5, imageURL: nil)
-    ]
-    
-    private let products: [Product] = [
-        Product(id: 0, title: "iPhone", picture: nil),
-        Product(id: 1, title: "iPhone", picture: nil),
-        Product(id: 2, title: "iPhone", picture: nil),
-        Product(id: 3, title: "iPhone", picture: nil),
-        Product(id: 4, title: "iPhone", picture: nil),
-        Product(id: 5, title: "iPhone", picture: nil)
-    ]
-    
     private var hotSales: [HomeStoreItem] = []
     private var bestSellers: [BestSellerItem] = []
     
