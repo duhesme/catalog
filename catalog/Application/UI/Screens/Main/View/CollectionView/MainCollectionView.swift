@@ -122,12 +122,12 @@ extension MainCollectionView {
 extension MainCollectionView {
     
     func configureCategoryCell(forIndexPath indexPath: IndexPath) -> CategoryMainCollectionViewCell? {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMainCollectionViewCell.identifier, for: indexPath) as? CategoryMainCollectionViewCell else { return nil }
         let index = indexPath.row
         print("Category: \(index)")
-        cell?.title = categories[index].title
-        cell?.icon = categories[index].image
-        cell?.isSelected = categories[index].isSelected
+        cell.title = categories[index].title
+        cell.icon = categories[index].image
+        cell.isSelected = categories[index].isSelected
         
         return cell
     }

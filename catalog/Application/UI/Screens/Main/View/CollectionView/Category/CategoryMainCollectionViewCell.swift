@@ -15,7 +15,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
     
     private let iconContainer: UIView = {
         let view = UIView()
-        view.backgroundColor = Asset.Colors.Base.orange.color
+        view.backgroundColor = .white
         view.layer.cornerRadius = CGFloat(71) / CGFloat(2)
         
         return view
@@ -25,6 +25,7 @@ final class CategoryMainCollectionViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = Asset.Assets.Main.Category.question.image
+        imageView.backgroundColor = .clear
         
         return imageView
     }()
