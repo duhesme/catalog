@@ -20,23 +20,21 @@ final class ProductView: UIView {
         let label = UILabel()
         label.text = "199"
         label.backgroundColor = .red
-        label.font = .systemFont(ofSize: 10)
+        label.font = FontFamily.MarkPro.regular.font(size: 10)
         return label
     }()
     
     private let discountPriceLabel: UILabel = {
         let label = UILabel()
         label.text = "199"
-        label.font = .systemFont(ofSize: 16)
+        label.font = FontFamily.MarkPro.medium.font(size: 16)
         return label
     }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "iPhone"
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.font = .systemFont(ofSize: 10)
+        label.font = FontFamily.MarkPro.regular.font(size: 10)
         return label
     }()
     
@@ -67,7 +65,8 @@ final class ProductView: UIView {
         }
         set {
             let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: newValue!)
-                attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+            attributeString.addAttribute(NSAttributedString.Key.font, value: FontFamily.MarkPro.regular.font(size: 10), range: NSRange(location: 0, length: attributeString.length))
             
             priceLabel.attributedText = attributeString
         }

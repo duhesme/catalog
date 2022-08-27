@@ -32,6 +32,8 @@
 		84196EFA28B9F7C300A6FEF9 /* SFPRODISPLAYBOLD.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 84196EF128B9F7C300A6FEF9 /* SFPRODISPLAYBOLD.OTF */; };
 		84196EFB28B9F7C300A6FEF9 /* SFPRODISPLAYLIGHTITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 84196EF228B9F7C300A6FEF9 /* SFPRODISPLAYLIGHTITALIC.OTF */; };
 		84196EFC28B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 84196EF328B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */; };
+		84196EFE28B9F92600A6FEF9 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84196EFD28B9F92600A6FEF9 /* Fonts+Generated.swift */; };
+		84196F0028B9F9AB00A6FEF9 /* MarkPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84196EFF28B9F9AB00A6FEF9 /* MarkPro-Medium.ttf */; };
 		8429AD9728B7927600D615F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429AD9628B7927600D615F3 /* AppDelegate.swift */; };
 		8429ADA028B7927700D615F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8429AD9F28B7927700D615F3 /* Assets.xcassets */; };
 		8429ADA328B7927700D615F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429ADA128B7927700D615F3 /* LaunchScreen.storyboard */; };
@@ -77,6 +79,8 @@
 		84196EF128B9F7C300A6FEF9 /* SFPRODISPLAYBOLD.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYBOLD.OTF; sourceTree = "<group>"; };
 		84196EF228B9F7C300A6FEF9 /* SFPRODISPLAYLIGHTITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYLIGHTITALIC.OTF; sourceTree = "<group>"; };
 		84196EF328B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYSEMIBOLDITALIC.OTF; sourceTree = "<group>"; };
+		84196EFD28B9F92600A6FEF9 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
+		84196EFF28B9F9AB00A6FEF9 /* MarkPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkPro-Medium.ttf"; sourceTree = "<group>"; };
 		8429AD9328B7927600D615F3 /* catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429AD9628B7927600D615F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8429AD9F28B7927700D615F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 		84196ECF28B8E0A000A6FEF9 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				84196EFD28B9F92600A6FEF9 /* Fonts+Generated.swift */,
 				84196ED028B8E0B400A6FEF9 /* Strings+Generated.swift */,
 				84196ED128B8E0B400A6FEF9 /* XCAssets+Generated.swift */,
 			);
@@ -220,6 +225,7 @@
 		84196EE528B9F78D00A6FEF9 /* Mark-Pro */ = {
 			isa = PBXGroup;
 			children = (
+				84196EFF28B9F9AB00A6FEF9 /* MarkPro-Medium.ttf */,
 				84196EE628B9F7A100A6FEF9 /* Mark-Pro-Bold.ttf */,
 				84196EE728B9F7A100A6FEF9 /* Mark-Pro.ttf */,
 			);
@@ -514,6 +520,7 @@
 			files = (
 				84196EF628B9F7C300A6FEF9 /* SFPRODISPLAYMEDIUM.OTF in Resources */,
 				84196EE828B9F7A100A6FEF9 /* Mark-Pro-Bold.ttf in Resources */,
+				84196F0028B9F9AB00A6FEF9 /* MarkPro-Medium.ttf in Resources */,
 				84196EFB28B9F7C300A6FEF9 /* SFPRODISPLAYLIGHTITALIC.OTF in Resources */,
 				84196EC928B8AB4400A6FEF9 /* Localizable.strings in Resources */,
 				84196EF428B9F7C300A6FEF9 /* SFPRODISPLAYULTRALIGHTITALIC.OTF in Resources */,
@@ -595,6 +602,7 @@
 				8429ADBD28B7A20400D615F3 /* BaseViewConrtoller.swift in Sources */,
 				8429ADD528B7B5EE00D615F3 /* MainModel.swift in Sources */,
 				8429ADC028B7A2CC00D615F3 /* UIView+Extensions.swift in Sources */,
+				84196EFE28B9F92600A6FEF9 /* Fonts+Generated.swift in Sources */,
 				8429AD9728B7927600D615F3 /* AppDelegate.swift in Sources */,
 				84196EDC28B92E8200A6FEF9 /* API.swift in Sources */,
 				84196EDA28B92DBD00A6FEF9 /* Agent.swift in Sources */,
