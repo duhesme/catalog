@@ -162,7 +162,8 @@ extension MainCollectionView {
         let product = bestSellers[indexPath.row]
         
         cell?.setImage(fromStringURL: product.picture)
-        cell?.price = "\(product.price_without_discount)"
+        cell?.discountPrice = "$\(product.discount_price)"
+        cell?.price = "$\(product.price_without_discount)"
         
         return cell
     }

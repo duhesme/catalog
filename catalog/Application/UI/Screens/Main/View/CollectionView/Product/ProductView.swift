@@ -28,6 +28,7 @@ final class ProductView: UIView {
         let label = UILabel()
         label.text = "199"
         label.font = FontFamily.MarkPro.medium.font(size: 16)
+        label.textColor = Asset.Colors.Main.Product.priceFont.color
         return label
     }()
     
