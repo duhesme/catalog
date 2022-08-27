@@ -15,6 +15,7 @@ final class SearchMainCollectionView: UICollectionViewCell {
     }
     
     private let searchView = SearchView()
+    private let qrView = QRView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,16 +32,34 @@ final class SearchMainCollectionView: UICollectionViewCell {
     }
     
     private func setUpAppearance() {
-        backgroundColor = .white
-        layer.cornerRadius = 12
+        backgroundColor = .clear
+        searchView.layer.cornerRadius = 18
+        searchView.clipsToBounds = true
         clipsToBounds = true
     }
     
     private func makeConstraints() {
-        addSubview(searchView)
+        let stackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [
+                searchView,
+                qrView
+            ])
+            stackView.axis = .horizontal
+            stackView.distribution = .fill
+            stackView.spacing = 11
+            stackView.backgroundColor = .clear
+            
+            return stackView
+        }()
         
-        searchView.snp.makeConstraints { make in
+        contentView.addSubview(stackView)
+        
+        stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        qrView.snp.makeConstraints { make in
+            make.width.equalTo(34)
         }
     }
     

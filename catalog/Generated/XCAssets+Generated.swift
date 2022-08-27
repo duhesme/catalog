@@ -38,12 +38,19 @@ internal enum Asset {
         internal static let heart = ImageAsset(name: "Heart")
         internal static let selectedHeart = ImageAsset(name: "SelectedHeart")
       }
+      internal enum Search {
+        internal static let magnifier = ImageAsset(name: "Magnifier")
+        internal static let clear = ImageAsset(name: "clear")
+        internal static let qrIcon = ImageAsset(name: "qr-icon")
+      }
     }
   }
   internal enum Colors {
     internal enum Base {
       internal static let background = ColorAsset(name: "background")
+      internal static let lightGray = ColorAsset(name: "lightGray")
       internal static let orange = ColorAsset(name: "orange")
+      internal static let textColor = ColorAsset(name: "textColor")
     }
     internal enum Main {
       internal enum Banner {

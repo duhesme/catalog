@@ -34,6 +34,7 @@
 		84196EFC28B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF in Resources */ = {isa = PBXBuildFile; fileRef = 84196EF328B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */; };
 		84196EFE28B9F92600A6FEF9 /* Fonts+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84196EFD28B9F92600A6FEF9 /* Fonts+Generated.swift */; };
 		84196F0028B9F9AB00A6FEF9 /* MarkPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84196EFF28B9F9AB00A6FEF9 /* MarkPro-Medium.ttf */; };
+		84196F0228BA380C00A6FEF9 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84196F0128BA380C00A6FEF9 /* QRView.swift */; };
 		8429AD9728B7927600D615F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429AD9628B7927600D615F3 /* AppDelegate.swift */; };
 		8429ADA028B7927700D615F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8429AD9F28B7927700D615F3 /* Assets.xcassets */; };
 		8429ADA328B7927700D615F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429ADA128B7927700D615F3 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 		84196EF328B9F7C300A6FEF9 /* SFPRODISPLAYSEMIBOLDITALIC.OTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = SFPRODISPLAYSEMIBOLDITALIC.OTF; sourceTree = "<group>"; };
 		84196EFD28B9F92600A6FEF9 /* Fonts+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Fonts+Generated.swift"; sourceTree = "<group>"; };
 		84196EFF28B9F9AB00A6FEF9 /* MarkPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkPro-Medium.ttf"; sourceTree = "<group>"; };
+		84196F0128BA380C00A6FEF9 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		8429AD9328B7927600D615F3 /* catalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429AD9628B7927600D615F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8429AD9F28B7927700D615F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -147,7 +149,7 @@
 		84196EB328B8182E00A6FEF9 /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				8429ADD728B7FAD400D615F3 /* SearchView.swift */,
+				84196F0328BA381000A6FEF9 /* SearchView */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -246,6 +248,15 @@
 				84196EEB28B9F7C300A6FEF9 /* SFPRODISPLAYULTRALIGHTITALIC.OTF */,
 			);
 			path = "SF-Pro-Display";
+			sourceTree = "<group>";
+		};
+		84196F0328BA381000A6FEF9 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				8429ADD728B7FAD400D615F3 /* SearchView.swift */,
+				84196F0128BA380C00A6FEF9 /* QRView.swift */,
+			);
+			path = SearchView;
 			sourceTree = "<group>";
 		};
 		8429AD8A28B7927600D615F3 = {
@@ -589,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84196EDF28B92FA300A6FEF9 /* StoreContent.swift in Sources */,
+				84196F0228BA380C00A6FEF9 /* QRView.swift in Sources */,
 				8429ADD828B7FAD400D615F3 /* SearchView.swift in Sources */,
 				8429ADB728B79F6700D615F3 /* MainViewController.swift in Sources */,
 				84196EB128B810BB00A6FEF9 /* BannerMainCollectionViewCell.swift in Sources */,
