@@ -1,5 +1,5 @@
 //
-//  Store.swift
+//  StoreContent.swift
 //  catalog
 //
 //  Created by Никита Владимирович on 26.08.2022.

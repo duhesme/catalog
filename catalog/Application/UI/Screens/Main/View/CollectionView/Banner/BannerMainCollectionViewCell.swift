@@ -67,10 +67,10 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
             return !newView.isHidden
         }
         set {
-            if newValue == nil && newValue == false {
-                newView.isHidden = false
-            } else {
+            if newValue == nil || newValue == false {
                 newView.isHidden = true
+            } else {
+                newView.isHidden = false
             }
         }
     }

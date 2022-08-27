@@ -140,7 +140,7 @@ extension MainCollectionView {
         cell?.subtitle = banner.subtitle
         cell?.setImage(fromStringURL: banner.picture)
         cell?.isNew = banner.is_new
-        cell?.isBuy = banner.is_buy 
+        cell?.isBuy = banner.is_buy
         
         return cell
     }
