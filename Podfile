@@ -7,5 +7,6 @@ target 'catalog' do
 
   # Pods for catalog
   pod 'SwiftGen', '~> 6.0'
+  pod 'IQKeyboardManagerSwift', '6.3.0'
 
 end

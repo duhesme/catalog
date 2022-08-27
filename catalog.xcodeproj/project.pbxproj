@@ -473,6 +473,7 @@
 				8429AD8F28B7927600D615F3 /* Sources */,
 				8429AD9028B7927600D615F3 /* Frameworks */,
 				8429AD9128B7927600D615F3 /* Resources */,
+				0AE4FED1F98865663D05212D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -512,8 +513,8 @@
 			);
 			mainGroup = 8429AD8A28B7927600D615F3;
 			packageReferences = (
-				8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
 			);
 			productRefGroup = 8429AD9428B7927600D615F3 /* Products */;
 			projectDirPath = "";
@@ -552,6 +553,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0AE4FED1F98865663D05212D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-catalog/Pods-catalog-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-catalog/Pods-catalog-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-catalog/Pods-catalog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		84196EC128B8A8FC00A6FEF9 /* SwiftGen */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -771,7 +789,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8TC4T4YW8P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = $PROJECT_DIR/catalog/Configuration/Info.plist;
+				INFOPLIST_FILE = "$PROJECT_DIR/catalog/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -800,7 +818,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8TC4T4YW8P;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = $PROJECT_DIR/catalog/Configuration/Info.plist;
+				INFOPLIST_FILE = "$PROJECT_DIR/catalog/Configuration/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -843,7 +861,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -851,7 +869,7 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -864,12 +882,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		84196EBA28B8A72900A6FEF9 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 84196EB928B8A72900A6FEF9 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
 			productName = Kingfisher;
 		};
 		8429ADCE28B7ADBD00D615F3 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 8429ADCD28B7ADBD00D615F3 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
