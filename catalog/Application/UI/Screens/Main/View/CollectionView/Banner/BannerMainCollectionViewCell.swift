@@ -16,6 +16,41 @@ final class BannerMainCollectionViewCell: UICollectionViewCell {
     
     private let containerView = UIView()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontFamily.SFProDisplay.medium.font(size: 25)
+        label.textColor = .white
+        label.text = "iPhone 12"
+        
+        return label
+    }()
+    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontFamily.SFProDisplay.regular.font(size: 11)
+        label.textColor = .white
+        label.text = "Súper. Mega. Rápido."
+        
+        return label
+    }()
+    
+    private let newLabel: UILabel = {
+        let label = UILabel()
+        label.font = FontFamily.SFProDisplay.medium.font(size: 10)
+        label.textColor = .white
+        label.text = "New"
+        
+        return label
+    }()
+    
+    private let buyNowButton: UIButton = {
+        let button = UIButton()
+        button.titleLabel?.font = FontFamily.SFProDisplay.medium.font(size: 11)
+        button.setTitleColor(Asset.Colors.Main.Banner.buyNowFont.color, for: .normal)
+        
+        return button
+    }()
+    
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

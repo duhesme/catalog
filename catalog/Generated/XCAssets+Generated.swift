@@ -42,6 +42,9 @@ internal enum Asset {
   }
   internal enum Colors {
     internal enum Main {
+      internal enum Banner {
+        internal static let buyNowFont = ColorAsset(name: "buyNowFont")
+      }
       internal enum Category {
         internal static let shadow = ColorAsset(name: "shadow")
       }
