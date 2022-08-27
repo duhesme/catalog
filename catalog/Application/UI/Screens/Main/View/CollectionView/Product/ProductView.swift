@@ -21,6 +21,7 @@ final class ProductView: UIView {
         label.text = "199"
         label.backgroundColor = .red
         label.font = FontFamily.MarkPro.regular.font(size: 10)
+        label.textColor = Asset.Colors.Main.Product.priceFont.color
         return label
     }()
     
@@ -28,7 +29,7 @@ final class ProductView: UIView {
         let label = UILabel()
         label.text = "199"
         label.font = FontFamily.MarkPro.medium.font(size: 16)
-        label.textColor = Asset.Colors.Main.Product.priceFont.color
+        label.textColor = Asset.Colors.Main.Product.discountPriceFont.color
         return label
     }()
     
@@ -66,7 +67,7 @@ final class ProductView: UIView {
         }
         set {
             let attributeString: NSMutableAttributedString = NSMutableAttributedString(string: newValue!)
-            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributeString.length))
+            attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSRange(location: 0, length: attributeString.length))
             attributeString.addAttribute(NSAttributedString.Key.font, value: FontFamily.MarkPro.regular.font(size: 10), range: NSRange(location: 0, length: attributeString.length))
             
             priceLabel.attributedText = attributeString

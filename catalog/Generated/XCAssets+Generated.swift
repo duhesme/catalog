@@ -43,6 +43,7 @@ internal enum Asset {
   internal enum Colors {
     internal enum Main {
       internal enum Product {
+        internal static let discountPriceFont = ColorAsset(name: "discountPriceFont")
         internal static let likeButtonShadow = ColorAsset(name: "likeButtonShadow")
         internal static let priceFont = ColorAsset(name: "priceFont")
         internal static let shadow = ColorAsset(name: "shadow")
