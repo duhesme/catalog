@@ -82,6 +82,23 @@ final class ProductView: UIView {
         }
     }
     
+    var isFavourite: Bool {
+        get {
+            if likeButton.imageView?.image == Asset.Assets.Main.Product.selectedHeart.image {
+                return true
+            } else {
+                return false
+            }
+        }
+        set {
+            if newValue == true {
+                likeButton.setImage(Asset.Assets.Main.Product.selectedHeart.image, for: .normal)
+            } else {
+                likeButton.setImage(Asset.Assets.Main.Product.heart.image, for: .normal)
+            }
+        }
+    }
+    
     func setImage(fromURL url: URL) {
         imageView.kf.setImage(with: .network(url))
     }

@@ -50,6 +50,15 @@ final class ProductMainCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var isFavourite: Bool {
+        get {
+            return productView.isFavourite
+        }
+        set {
+            productView.isFavourite = newValue
+        }
+    }
+    
     func setImage(fromStringURL url: String) {
         if let url = URL(string: url) {
             productView.setImage(fromURL: url)

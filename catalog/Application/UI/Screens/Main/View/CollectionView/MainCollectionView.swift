@@ -133,14 +133,14 @@ extension MainCollectionView {
     }
     
     func configureBannerCell(forIndexPath indexPath: IndexPath) -> BannerMainCollectionViewCell? {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerMainCollectionViewCell.identifier, for: indexPath) as? BannerMainCollectionViewCell else { return nil }
         
         let banner = hotSales[indexPath.row]
-        cell?.title = banner.title
-        cell?.subtitle = banner.subtitle
-        cell?.setImage(fromStringURL: banner.picture)
-        cell?.isNew = banner.is_new
-        cell?.isBuy = banner.is_buy
+        cell.title = banner.title
+        cell.subtitle = banner.subtitle
+        cell.setImage(fromStringURL: banner.picture)
+        cell.isNew = banner.is_new
+        cell.isBuy = banner.is_buy
         
         return cell
     }
@@ -153,6 +153,7 @@ extension MainCollectionView {
         cell.discountPrice = "$\(product.discount_price)"
         cell.price = "$\(product.price_without_discount)"
         cell.title = product.title
+        cell.isFavourite = product.is_favorites
         
         return cell
     }
